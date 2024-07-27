@@ -9,5 +9,54 @@
     <script>
         console.log("Hello World!");
     </script>
+
+
+    <!--this here is code for part 2 through 3 of the rock
+    , paper, and scissors project...
+
+
+
+
+PART 2:
+
+    let choice;
+
+function getComputerChoice(choice){
+    let number = Math.floor(Math.random() * 9 +1);
+    if (number == 0 || number <= 3){
+        choice = "rock";
+    }
+    
+    else if (number == 3 || number <= 6){
+        choice = "paper";
+    }
+    
+    else {
+        choice = "scissors";
+    }
+    
+    return choice;
+}
+
+
+
+PART 3:
+
+console.log(getComputerChoice(choice));
+
+
+let humanChoice;
+
+function getHumanChoice(humanChoice){
+    let action = prompt("Lets play rock paper scissors, what's your choice?");
+    
+    return action;
+}
+console.log(getHumanChoice(humanChoice));
+    
+    
+    
+    
+    --> 
 </body>
 </html>
