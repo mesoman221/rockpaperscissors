@@ -8,13 +8,54 @@
 <body>
     <script>
         console.log("Hello World!");
+
+        function handleButtonClick(playerChoice) {
+            const computerChoice = getComputerChoice();
+            playRound(playerChoice, computerChoice);
+        }
+
+        
+        // add click event listeners to each button
+        const button1 = document.getElementById('button1').addEventListener('click', () => handleButtonClick('rock'));
+        const button2 = document.getElementById('button2').addEventListener('click', () => handleButtonClick('paper'));
+        const button3 = document.getElementById('button3').addEventListener('click', () => handleButtonClick('scissors'));
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+
+        function getComputerChoice() {
+            let number = Math.floor(Math.random() * 3); // Generates 0, 1, or 2
+            if (number === 0) {
+                return "rock";
+            } else if (number === 1) {
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                console.log("It was a tie!");
+            } else if (
+                (humanChoice === "rock" && computerChoice === "scissors") ||
+                (humanChoice === "paper" && computerChoice === "rock") ||
+                (humanChoice === "scissors" && computerChoice === "paper")
+            ) {
+                console.log(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}!`);
+                humanScore++;
+            } else {
+                console.log(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}!`);
+                computerScore++;
+            }
+        }
+
     </script>
 
-    <button>rock</button>
-    <button>paper</button>
-    <button>scissors</button>
-
-
+    <button id="button1">rock</button>
+    <button id="button2">paper</button>
+    <button id="button3">scissors</button>
 
     <!--this here is code for the rock, paper, scissors project.
 
